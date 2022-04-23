@@ -284,7 +284,7 @@
     flex-shrink: 0;
 }
 
-$container-sizes: 60rem, 150rem, 150rem, 150rem, 150rem, 150rem;
+$container-sizes: 60rem, 100rem, 100rem, 100rem, 100rem, 100rem;
 
 @each $bp in $breakpoints {
 

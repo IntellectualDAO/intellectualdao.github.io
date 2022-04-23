@@ -35,7 +35,8 @@ export default {
 
     purgeCSS: {
         mode: 'webpack',
-        enabled: true
+        enabled: true,
+        whitelist: ['dz-message', 'dz-preview']
     },
 
     // Modules: https://go.nuxtjs.dev/config-modules

@@ -1,28 +1,22 @@
 @font-face {
-    font-family: 'FuturaPT';
-    src: url('@/assets/fonts/FuturaPTBook.otf') format('truetype');
-    font-weight: 300;
-    font-display: swap;
-}
-
-@font-face {
-    font-family: 'FuturaPT';
-    src: url('@/assets/fonts/FuturaPTMedium.otf') format('truetype');
+    font-family: 'Andada Pro';
+    src: url('@/assets/fonts/AndadaPro-Regular.ttf') format('truetype');
     font-weight: 400;
     font-display: swap;
 }
 
 @font-face {
-    font-family: 'FuturaPT';
-    src: url('@/assets/fonts/FuturaPTDemi.otf') format('truetype');
-    font-weight: 600;
+    font-family: 'Andada Pro';
+    src: url('@/assets/fonts/AndadaPro-Medium.ttf') format('truetype');
+    font-weight: 500;
     font-display: swap;
 }
 
 @font-face {
-    font-family: 'FuturaPT';
-    src: url('@/assets/fonts/FuturaPTBold.otf') format('truetype');
-    font-weight: 700;
+    font-family: 'Andada Pro';
+    src: url('@/assets/fonts/AndadaPro-MediumItalic.ttf') format('truetype');
+    font-weight: 500;
+    font-style: italic;
     font-display: swap;
 }
 
@@ -44,7 +38,7 @@ html {
     @include respond(xlarge) {
         font-size: 12px; // 17.5px
     }
-    font-family: 'FuturaPT', 'Sand';
+    font-family: 'Andada Pro', 'Sand';
 }
 
 body {
@@ -57,7 +51,7 @@ body {
 *,
 *:before,
 *:after {
-    font-family: 'FuturaPT', 'Sand';
+    font-family: 'Andada Pro', 'Sand';
     font-size: inherit;
     font-weight: inherit;
     fill: inherit;
@@ -68,19 +62,19 @@ h5,
 h4,
 h3,
 h2,
-h1 {
+h1,
+p {
     margin-top: 0;
     margin-bottom: 0;
-    font-weight: 600;
 }
 
 h1 {
-    font-size: 3.2rem;
-    line-height: 4.3rem;
+    font-size: 9rem;
+    line-height: 10rem;
 }
 h2 {
-    font-size: 2rem;
-    line-height: 2.4rem;
+    font-size: 5.6rem;
+    line-height: 6rem;
 } 
 
 .xsmallF {
@@ -129,6 +123,16 @@ h2 {
     fill: $text-info;
 }
 
+.primaryc {
+    color: #4E2BC3;
+}
+.primarybg {
+    background-color: #4E2BC3;
+}
+.italic {
+    font-style: italic;
+}
+
 .uppercase {
     text-transform: uppercase;
 }
@@ -136,14 +140,8 @@ h2 {
     text-transform: capitalize;
 }
 
-.light {
-    font-weight: 300;
-}
-.demi {
-    font-weight: 600;
-} 
-.bold {
-    font-weight: 700;
+.medium {
+    font-weight: 500;
 }
 
 a {

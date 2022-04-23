@@ -1,13 +1,29 @@
 <template>
-    <div>
-        <button v-if="!connected" @click="connect">Connect</button>
-        <div v-else class="d-flex-col gapy-8">
-            <div>Logged in</div>
-            <div>{{ $store.state.address }}</div>
+    <section class="index container">
+        <header class="index__header p-20 pb-100">
+            <h1 class="medium">Intellectual DAO</h1>
+            <p class="primaryc pb-30 pt-10">Intellectual property management ecosystem in 3 easy steps</p>
+            <em
+                >We know that artists and authors usually want to focus on the actual craft or research, so we empower all kinds of creators to concetrate on their creative processes and let the smart
+                contracts take care of their intellectual property.
+            </em>
+        </header>
+        <div class="index__drop p-20 pb-100">
+            <h2 class="mb-30">1 Upload File</h2>
             <input @change="fileInput" type="file" />
-            <button @click="logout">logout</button>
         </div>
-    </div>
+        <div class="index__submit p-20 pb-100">
+            <h2>2 Create Intellectual Property</h2>
+            <form class="d-flex-col px-40 pt-60" @submit.prevent="createIP({ hash, name, symbol })">
+                <input placeholder="Enter the name of your IP, ex: “unicorn drawing”" required class="mb-33" v-model="name" type="text" />
+                <input placeholder="Enter a symbol, ex: “s2!”" required class="mb-24" v-model="symbol" type="text" />
+                <button class="primarybg">Submit</button>
+            </form>
+        </div>
+        <div class="p-20 pb-100">
+            <h2>3 View my signature files</h2>
+        </div>
+    </section>
 </template>
 
 <script>
@@ -15,8 +31,15 @@ import { mapActions } from 'vuex';
 import SparkMD5 from 'spark-md5';
 
 export default {
-    mounted() {
-        console.log(this.$web3auth);
+    data() {
+        return {
+            name: '',
+            symbol: '',
+            hash: null,
+            options: {
+                url: 'http://httpbin.org/anything'
+            }
+        };
     },
     computed: {
         connected() {
@@ -24,6 +47,9 @@ export default {
         }
     },
     methods: {
+        test(file, response) {
+            console.log(file, response)
+        },
         async connect() {
             const web3auth = this.$web3auth;
             await web3auth.connect();
@@ -40,22 +66,18 @@ export default {
                         fileReader = new FileReader();
 
                     fileReader.onload = function (e) {
-                        console.log('read chunk nr', currentChunk + 1, 'of', chunks);
                         spark.append(e.target.result); // Append array buffer
                         currentChunk++;
 
                         if (currentChunk < chunks) {
                             loadNext();
                         } else {
-                            console.log('finished loading');
                             const hash = spark.end();
-                            console.info('computed hash', hash); // Compute hash
                             resolve(hash);
                         }
                     };
 
                     fileReader.onerror = function () {
-                        console.warn('oops, something went wrong.');
                         reject();
                     };
 
@@ -68,18 +90,64 @@ export default {
 
                     loadNext();
                 });
-                console.log(hash)
-                this.signFile(hash);
+                this.hash = hash;
             } catch (e) {
                 alert('something went wrong');
             }
         },
         ...mapActions({
             logout: 'logout',
+            createIP: 'createIP',
             signFile: 'signFile'
         })
     }
 };
 </script>
 
-<style lang="scss" scoped></style>
+<style lang="scss" scoped>
+.index {
+    &__header {
+        & > p {
+            color: #4e2bc3;
+            font-size: 3rem;
+        }
+        & > em {
+            font-size: 2.5rem;
+            line-height: 4rem;
+        }
+    }
+    &__drop {
+       & button {
+           background-color: #8247E5;
+           color: white;
+           width: 14rem;
+           height: 3.5rem;
+           border-radius: .3rem;
+       } 
+    }
+    &__submit {
+        & input {
+            width: 50rem;
+            height: 4.8rem;
+            padding-left: 1.5rem;
+        }
+        & button {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 14rem;
+            height: 3.5rem;
+            padding: 1rem 1.6rem;
+            background: #331684;
+            color: white;
+            border-radius: 3rem;
+        }
+    }
+    & > *:not(:last-child) {
+        border-bottom: 1px solid gray;
+    }
+}
+.dz-message, .dz-preview {
+    display: none !important;
+}
+</style>

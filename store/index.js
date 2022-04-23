@@ -1,6 +1,7 @@
 import { ADAPTER_STATUS, CHAIN_NAMESPACES, CONNECTED_EVENT_DATA, SafeEventEmitterProvider } from '@web3auth/base';
 import { LOGIN_MODAL_EVENTS } from '@web3auth/ui';
-import { ethers } from 'ethers';
+import { ethers, ContractFactory } from 'ethers';
+import intellectual from '@/static/intellectual';
 
 var web3provider = null;
 
@@ -13,7 +14,7 @@ export default {
     }),
     getters: {
         provider: function (state) {
-            console.log(web3provider)
+            console.log(web3provider);
             return web3provider ? new ethers.providers.Web3Provider(web3provider) : null;
         }
     },
@@ -23,7 +24,7 @@ export default {
             web3auth.on(ADAPTER_STATUS.CONNECTED, async (data) => {
                 web3provider = web3auth.provider;
                 const user = await web3auth.getUserInfo();
-                console.log(user)
+                console.log(user);
                 const address = (await getters.provider.listAccounts())[0];
                 const balance = await getters.provider.getBalance(address);
                 commit('SET_USER', {
@@ -51,10 +52,23 @@ export default {
             await this.$web3auth.logout();
             commit('UNSET_USER');
         },
-        async signFile({ state, commit, getters }, hash) {
+        async createIP({ state, commit, getters }, { hash, name, symbol }) {
             const signer = getters.provider.getSigner();
             const signature = await signer.signMessage(hash);
-            console.log(signature)
+
+            const r = signature.slice(0, 66);
+            const s = '0x' + signature.slice(66, 130);
+            const v = parseInt(signature.slice(130, 132), 16);
+
+            const factory = new ContractFactory(intellectual.abi, intellectual.byteCode, getters.provider.getSigner());
+            console.log(factory, signature.slice(130, 132), v, r ,s);
+            try {
+                const contract = await factory.deploy(name, symbol, v, r, s);
+                console.log(contract.address);
+                console.log(contract.deployTransaction);
+            } catch (e) {
+                console.log(e);
+            }
         }
     },
     mutations: {
