@@ -18,10 +18,12 @@
     "axios": "^0.26.1",
     "config": "^3.3.7",
     "core-js": "^3.15.1",
+    "crypto-js": "^4.1.1",
     "ethers": "^5.6.4",
     "js-cookie": "^3.0.1",
     "md5": "^2.3.0",
     "nuxt": "^2.15.7",
+    "spark-md5": "^3.0.2",
     "vue-socket.io": "^3.0.10"
   },
   "devDependencies": {

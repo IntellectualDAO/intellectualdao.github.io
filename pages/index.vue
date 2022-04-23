@@ -12,7 +12,7 @@
 
 <script>
 import { mapActions } from 'vuex';
-import md5 from 'md5';
+import SparkMD5 from 'spark-md5';
 
 export default {
     mounted() {
@@ -29,14 +29,50 @@ export default {
             await web3auth.connect();
         },
         async fileInput(event) {
-            const hash = await new Promise((resolve, reject) => {
-                var reader = new FileReader();
-                reader.addEventListener('load', function () {
-                    resolve(md5(this.result));
+            try {
+                const hash = await new Promise((resolve, reject) => {
+                    var blobSlice = File.prototype.slice || File.prototype.mozSlice || File.prototype.webkitSlice,
+                        file = event.target.files[0],
+                        chunkSize = 2097152,
+                        chunks = Math.ceil(file.size / chunkSize),
+                        currentChunk = 0,
+                        spark = new SparkMD5.ArrayBuffer(),
+                        fileReader = new FileReader();
+
+                    fileReader.onload = function (e) {
+                        console.log('read chunk nr', currentChunk + 1, 'of', chunks);
+                        spark.append(e.target.result); // Append array buffer
+                        currentChunk++;
+
+                        if (currentChunk < chunks) {
+                            loadNext();
+                        } else {
+                            console.log('finished loading');
+                            const hash = spark.end();
+                            console.info('computed hash', hash); // Compute hash
+                            resolve(hash);
+                        }
+                    };
+
+                    fileReader.onerror = function () {
+                        console.warn('oops, something went wrong.');
+                        reject();
+                    };
+
+                    function loadNext() {
+                        var start = currentChunk * chunkSize,
+                            end = start + chunkSize >= file.size ? file.size : start + chunkSize;
+
+                        fileReader.readAsArrayBuffer(blobSlice.call(file, start, end));
+                    }
+
+                    loadNext();
                 });
-                reader.readAsArrayBuffer(event.target.files[0]);
-            });
-            this.signFile(hash);
+                console.log(hash)
+                this.signFile(hash);
+            } catch (e) {
+                alert('something went wrong');
+            }
         },
         ...mapActions({
             logout: 'logout',
