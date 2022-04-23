@@ -1,0 +1,237 @@
+@for $var from 0 through 100 {
+    .w-#{$var} {
+        width: #{$var + '%'};
+    }
+
+    .h-#{$var} {
+        height: #{$var + '%'};
+}
+}
+@for $var from 0 through 1000 {
+    
+
+    .w-#{$var}r {
+        width: #{calc(0.1rem * #{$var})};
+    }
+
+    .h-#{$var}r {
+        height: #{calc(0.1rem * #{$var})};
+    }
+
+    .row-gap-#{$var} {
+        row-gap: calc(0.1rem * #{$var});
+    }
+    .gap-#{$var} {
+        gap: calc(0.1rem * #{$var});
+    }
+            
+    .gapy-#{$var} {
+        & > :not(:last-child) {
+            margin-bottom: calc(0.1rem * #{$var});
+        }
+    }
+    .gapx-#{$var} {
+        & > :not(:first-child) {
+            margin-left: calc(0.1rem * #{$var});
+        }
+    }
+
+    .m-#{$var} {
+        margin: calc(0.1rem * #{$var});
+    }
+    .mx-#{$var} {
+        margin-left: calc(0.1rem * #{$var});
+        margin-right: calc(0.1rem * #{$var});
+    }
+    .my-#{$var} {
+        margin-top: calc(0.1rem * #{$var});
+        margin-bottom: calc(0.1rem * #{$var});
+    }
+    .mt-#{$var} {
+        margin-top: calc(0.1rem * #{$var});
+    }
+    .mb-#{$var} {
+        margin-bottom: calc(0.1rem * #{$var});
+    }
+    .ml-#{$var} {
+        margin-left: calc(0.1rem * #{$var});
+    }
+    .mr-#{$var} {
+        margin-right: calc(0.1rem * #{$var});
+    }
+
+    .p-#{$var} {
+        padding: calc(0.1rem * #{$var});
+    }
+    .px-#{$var} {
+        padding-left: calc(0.1rem * #{$var});
+        padding-right: calc(0.1rem * #{$var});
+    }
+    .py-#{$var} {
+        padding-top: calc(0.1rem * #{$var});
+        padding-bottom: calc(0.1rem * #{$var});
+    }
+    .pt-#{$var} {
+        padding-top: calc(0.1rem * #{$var});
+    }
+    .pb-#{$var} {
+        padding-bottom: calc(0.1rem * #{$var});
+    }
+    .pl-#{$var} {
+        padding-left: calc(0.1rem * #{$var});
+    }
+    .pr-#{$var} {
+        padding-right: calc(0.1rem * #{$var});
+    }
+
+    @each $bp in $breakpoints {
+
+        @include respond($bp) {
+            .w-#{$bp}-#{$var} {
+                width: #{$var + '%'};
+            }
+        
+            .h-#{$bp}-#{$var} {
+                height: #{$var + '%'};
+            }
+        
+            .row-gap-#{$bp}-#{$var} {
+                row-gap: calc(0.25rem * #{$var});
+            }
+            .gap-#{$bp}-#{$var} {
+                gap: calc(0.25rem * #{$var});
+            }
+
+            .gapy-#{$bp}-#{$var} {
+                & > :not(:first-child) {
+                    margin-top: calc(0.25rem * #{$var});
+                }
+            }
+            .gapx-#{$bp}-#{$var} {
+                & > :not(:first-child) {
+                    margin-left: calc(0.25rem * #{$var});
+                }
+            }
+        
+            .m-#{$bp}-#{$var} {
+                margin: calc(0.25rem * #{$var});
+            }
+            .mx-#{$bp}-#{$var} {
+                margin-left: calc(0.25rem * #{$var});
+                margin-right: calc(0.25rem * #{$var});
+            }
+            .my-#{$bp}-#{$var} {
+                margin-top: calc(0.25rem * #{$var});
+                margin-bottom: calc(0.25rem * #{$var});
+            }
+            .mt-#{$bp}-#{$var} {
+                margin-top: calc(0.25rem * #{$var});
+            }
+            .mb-#{$bp}-#{$var} {
+                margin-bottom: calc(0.25rem * #{$var});
+            }
+            .ml-#{$bp}-#{$var} {
+                margin-left: calc(0.25rem * #{$var});
+            }
+            .mr-#{$bp}-#{$var} {
+                margin-right: calc(0.25rem * #{$var});
+            }
+        
+            .p-#{$bp}-#{$var} {
+                padding: calc(0.25rem * #{$var});
+            }
+            .px-#{$bp}-#{$var} {
+                padding-left: calc(0.25rem * #{$var});
+                padding-right: calc(0.25rem * #{$var});
+            }
+            .py-#{$bp}-#{$var} {
+                padding-top: calc(0.25rem * #{$var});
+                padding-bottom: calc(0.25rem * #{$var});
+            }
+            .pt-#{$bp}-#{$var} {
+                padding-top: calc(0.25rem * #{$var});
+            }
+            .pb-#{$bp}-#{$var} {
+                padding-bottom: calc(0.25rem * #{$var});
+            }
+            .pl-#{$bp}-#{$var} {
+                padding-left: calc(0.25rem * #{$var});
+            }
+            .pr-#{$bp}-#{$var} {
+                padding-right: calc(0.25rem * #{$var});
+            }
+        }
+    }
+
+}
+
+.mb-0 {
+    margin-bottom: 0 !important;
+}
+
+.m-a {
+    margin: auto;
+}
+.ml-a {
+    margin-left: auto;
+}
+.mr-a {
+    margin-right: auto;
+}
+.mx-a {
+    margin-left: auto;
+    margin-right: auto;
+}
+.mt-a {
+    margin-top: auto;
+}
+.mb-a {
+    margin-bottom: auto;
+}
+
+.relative {
+    position: relative;
+}
+
+.absolute {
+    position: absolute;
+}
+
+.fixed {
+    position: fixed !important;
+}
+
+.centerAbs {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+}
+
+img,
+button,
+select,
+.unselectable {
+    user-select: none;
+    -moz-user-select: none;
+    -khtml-user-select: none;
+    -webkit-user-select: none;
+    -o-user-select: none;
+}
+
+.cp {
+    cursor: pointer;
+}
+
+.disabled {
+    pointer-events: none;
+    cursor: default;
+}
+
+.textCenter {
+    text-align: center;
+}
+
+.textStart {
+    text-align: left;
+}

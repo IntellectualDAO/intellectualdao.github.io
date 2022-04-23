@@ -1,0 +1,64 @@
+.height_fade-enter-active,
+.height_fade-leave-active {
+    transition: max-height 0.7s ease;
+}
+.height_fade-enter,
+.height_fade-leave-to {
+    max-height: 0 !important;
+    overflow: hidden;
+}
+
+
+.opacity_fade-enter-active,
+.opacity_fade-leave-active {
+    transition: opacity 0.3s;
+}
+.opacity_fade-enter,
+.opacity_fade-leave-to {
+    opacity: 0.05 !important;
+}
+
+
+.top_fade-enter-active,
+.top_fade-leave-active {
+    transition: transform 0.3s ease;
+}
+.top_fade-enter,
+.top_fade-leave-to {
+    transform: scale(0) !important;
+}
+
+
+// PAGE AND LAYOUT ANIMATIONS 
+
+/* .page-enter-active,
+.page-leave-active {
+    transition: opacity 0.3s ease, transform .3s ease;
+}
+.page-leave-to {
+    transform: translateY(100%);
+}
+.page-enter,
+.page-leave-to {
+    opacity: 0;
+}
+
+.page_translate-enter-active,
+.page_translate-leave-active {
+    transition: opacity 0.3s ease, transform .3s ease;
+}
+.page_translate-enter,
+.page_translate-leave-to {
+    transform: translateY(75%);
+    opacity: 0;
+}
+
+
+.layout-enter-active,
+.layout-leave-active {
+    transition: opacity 0.3s;
+}
+.layout-enter,
+.layout-leave-active {
+    opacity: 0;
+} */

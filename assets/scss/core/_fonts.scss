@@ -1,0 +1,164 @@
+@font-face {
+    font-family: 'FuturaPT';
+    src: url('@/assets/fonts/FuturaPTBook.otf') format('truetype');
+    font-weight: 300;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'FuturaPT';
+    src: url('@/assets/fonts/FuturaPTMedium.otf') format('truetype');
+    font-weight: 400;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'FuturaPT';
+    src: url('@/assets/fonts/FuturaPTDemi.otf') format('truetype');
+    font-weight: 600;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'FuturaPT';
+    src: url('@/assets/fonts/FuturaPTBold.otf') format('truetype');
+    font-weight: 700;
+    font-display: swap;
+}
+
+
+html {
+    font-size: 8.5px;
+    @include respond(tab) {
+        font-size: 9px;
+    }
+    @include respond(land) {
+        font-size: 9.5px;
+    }
+    @include respond(desktop) {
+        font-size: 10px;
+    }
+    @include respond(large) {
+        font-size: 10.5px; // 17.5px
+    }
+    @include respond(xlarge) {
+        font-size: 12px; // 17.5px
+    }
+    font-family: 'FuturaPT', 'Sand';
+}
+
+body {
+    font-size: $xbig-font;
+    line-height: 2.4rem;
+}
+
+
+
+*,
+*:before,
+*:after {
+    font-family: 'FuturaPT', 'Sand';
+    font-size: inherit;
+    font-weight: inherit;
+    fill: inherit;
+}
+
+h6,
+h5,
+h4,
+h3,
+h2,
+h1 {
+    margin-top: 0;
+    margin-bottom: 0;
+    font-weight: 600;
+}
+
+h1 {
+    font-size: 3.2rem;
+    line-height: 4.3rem;
+}
+h2 {
+    font-size: 2rem;
+    line-height: 2.4rem;
+} 
+
+.xsmallF {
+    font-size: $xsmall-font;
+    line-height: 1.6rem;
+}
+.smallF {
+    font-size: $small-font;
+    line-height: 2rem;
+}
+.normalF {
+    font-size: $normal-font;
+    line-height: 2.4rem;
+}
+.bigF {
+    font-size: $big-font;
+    line-height: 2.4rem;
+}
+.xbigF {
+    font-size: $xbig-font;
+    line-height: 2.8rem;
+}
+.xxbigF {
+    font-size: 2.4rem;
+    line-height: 3.2rem;
+}
+.xxxbigF {
+    font-size: 2.8rem;
+    line-height: 3.6rem;
+}
+.titleF {
+    font-size: 3.2rem;
+    line-height: 4rem;
+}
+
+.white {
+    color: white;
+    fill: white;
+}
+.infoL {
+    color: $text-info-light;
+    fill: $text-info-light;
+}
+.infoF {
+    color: $text-info;
+    fill: $text-info;
+}
+
+.uppercase {
+    text-transform: uppercase;
+}
+.capitalize {
+    text-transform: capitalize;
+}
+
+.light {
+    font-weight: 300;
+}
+.demi {
+    font-weight: 600;
+} 
+.bold {
+    font-weight: 700;
+}
+
+a {
+    text-decoration: none;
+    outline: none;
+    margin: 0;
+}
+.clickable {
+    cursor: pointer;
+    color: #000099;
+    &:hover {
+        text-decoration: underline;
+    }
+}
+
+p {
+    margin-top: 0;
+}

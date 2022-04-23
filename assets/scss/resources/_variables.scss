@@ -1,0 +1,66 @@
+// Breakpoints
+$phone-breakpoint: 25em;
+$tab-breakpoint: 50em;
+$land-breakpoint: 64em;
+$desktop-breakpoint: 76em;
+$large-breakpoint: 100em;
+$xlarge-breakpoint: 120em;
+
+$phone-max-breakpoint: 24.99em;
+$tab-max-breakpoint: 49.99em;
+$land-max-breakpoint: 63.99em;
+$desktop-max-breakpoint: 75.99em;
+$large-max-breakpoint: 99.99em;
+
+$breakpoints: phone, tab, land, desktop, large, xlarge; // Breakpoints
+
+// Colors
+$white:    #fff;
+$gray-100: #f8f9fa;
+$gray-200: #f5f6f8;
+$gray-300: #f6f6f6;
+$gray-400: #ced4da;
+$gray-500: #adb5bd;
+$gray-600: #74788d;
+$gray-700: #495057;
+$gray-800: #343a40;
+$gray-900: #212529;
+$black:    #000;
+
+$blue:    #5b73e8;
+$indigo:  #564ab1;
+$purple:  #6f42c1;
+$pink:    #e83e8c;
+$red:     #f46a6a;
+$orange:  #f1734f;
+$yellow:  #f1b44c;
+$green:   #34c38f;
+$teal:    #050505;
+$cyan:    #50a5f1;
+
+$text-color: white;
+$text-black: black;
+
+$text-info: #9D9DAD;
+$text-info-light: #BFBFCD;
+$text-info-light-disabled: #D9D9E6;
+
+$primary: $purple;
+$secondary: $gray-500;
+$success: $green;
+$info: $cyan;
+$warning: $yellow;
+$danger: $red;
+$font-color: $gray-800;
+
+// Fonts
+$xsmall-font: 1.2rem;
+$small-font: 1.4rem;
+$normal-font: 1.6rem;
+$big-font: 1.8rem;
+$xbig-font: 2rem;
+
+$small-connect-width: 38rem;
+$connect-width: 42rem;
+$connect-height: 16.9rem;
+$header-height: 7.65rem;
