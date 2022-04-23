@@ -1,5 +1,5 @@
 <template>
-    <section class="default relative h-100">
+    <section class="default relative h-100 px-10 pr-30">
         <UiHeader />
         <main>
             <Nuxt />

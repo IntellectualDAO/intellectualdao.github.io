@@ -63,6 +63,10 @@ export default {
         }
     },
 
-    env: {
-    },
+    env: {},
+
+    target: 'static',
+    router: {
+        base: '/intellectualdao.github.io/'
+    }
 };
