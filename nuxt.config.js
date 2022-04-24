@@ -67,6 +67,6 @@ export default {
 
     target: 'static',
     router: {
-        base: '/intellectualdao.github.io/'
+        base: '/'
     }
 };
