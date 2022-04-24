@@ -13,7 +13,7 @@
             <input @change="fileInput" type="file" />
         </div>
         <div class="index__submit p-20 pb-100">
-            <h2>2 Create Intellectual Property</h2>
+            <h2>2 Create Intellectual Property Signatures</h2>
             <form class="d-flex-col px-40 pt-60" @submit.prevent="createIP({ hash, name, symbol })">
                 <input placeholder="Enter the name of your IP, ex: “unicorn drawing”" required class="mb-33" v-model="name" type="text" />
                 <input placeholder="Enter a symbol, ex: “s2!”" required class="mb-24" v-model="symbol" type="text" />
@@ -21,7 +21,7 @@
             </form>
         </div>
         <div class="p-20 pb-100">
-            <h2>3 View my signature files</h2>
+            <h2>3 View my signed files</h2>
         </div>
     </section>
 </template>
