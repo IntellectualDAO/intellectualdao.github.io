@@ -1,20 +1,20 @@
 @font-face {
-    font-family: 'Andada Pro';
-    src: url('@/assets/fonts/AndadaPro-Regular.ttf') format('truetype');
+    font-family: 'GeneralSans';
+    src: url('@/assets/fonts/GeneralSans-Regular.otf') format('opentype');
     font-weight: 400;
     font-display: swap;
 }
 
 @font-face {
-    font-family: 'Andada Pro';
-    src: url('@/assets/fonts/AndadaPro-Medium.ttf') format('truetype');
+    font-family: 'GeneralSans';
+    src: url('@/assets/fonts/GeneralSans-Medium.otf') format('opentype');
     font-weight: 500;
     font-display: swap;
 }
 
 @font-face {
-    font-family: 'Andada Pro';
-    src: url('@/assets/fonts/AndadaPro-MediumItalic.ttf') format('truetype');
+    font-family: 'GeneralSans';
+    src: url('@/assets/fonts/GeneralSans-MediumItalic.otf') format('opentype');
     font-weight: 500;
     font-style: italic;
     font-display: swap;
@@ -38,7 +38,7 @@ html {
     @include respond(xlarge) {
         font-size: 12px; // 17.5px
     }
-    font-family: 'Andada Pro', 'Sand';
+    font-family: 'GeneralSans', 'Sand';
 }
 
 body {
@@ -51,7 +51,7 @@ body {
 *,
 *:before,
 *:after {
-    font-family: 'Andada Pro', 'Sand';
+    font-family: 'GeneralSans', 'Sand';
     font-size: inherit;
     font-weight: inherit;
     fill: inherit;
